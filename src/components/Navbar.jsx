@@ -14,7 +14,7 @@ const Navbar = () => {
   const { user, logOut } = useAuth();
 
   return (
-
+<div className="2xl:container mx-auto">
     <div className="navbar bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
@@ -66,6 +66,7 @@ const Navbar = () => {
               <button><NavLink to="/login">Login</NavLink></button>
         }
 
+      </div>
       </div>
     </div>
   );

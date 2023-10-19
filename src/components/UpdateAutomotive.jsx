@@ -6,10 +6,9 @@ import Navbar from "./Navbar";
 const UpdateAutomotive = () => {
 
     const automotive = useLoaderData();
-    
+
 
     const { _id, name, brand, type, price, image, description,rating } = automotive;
-    console.log(automotive);
 
     const handleUpdateAutomotive = event => {
         event.preventDefault();

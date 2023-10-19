@@ -1,7 +1,7 @@
-import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import Navbar from '../Navbar';
 import Products from './Products';
+import BrandSlider from './BrandSlider';
 
 const BrandDetails = () => {
     const {brandName} = useParams();
@@ -10,10 +10,7 @@ const BrandDetails = () => {
     return (
         <>
         <Navbar/>
-            brand detail of {brandName}
-            <h1 className="text-4xl">
-                {brandName} slider here
-            </h1>
+            <BrandSlider brandName={brandName}/>
 
 
             <br />
