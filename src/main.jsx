@@ -14,6 +14,8 @@ import Users from './components/users.jsx';
 import AuthProvider from './providers/AuthProvider.jsx';
 import Register from './components/Login/Register.jsx';
 import { ToastBar } from 'react-hot-toast';
+import BrandDetails from './components/BrandDetails/BrandDetails.jsx';
+import ProductDetails from './components/ProductDetails/ProductDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -22,13 +24,23 @@ const router = createBrowserRouter([
     loader: () => fetch('http://localhost:5000/automotive')
   },
   {
+    path: "/brands/:brandName",
+    element: <BrandDetails />,
+    loader: ({params}) => fetch(`http://localhost:5000/automotive/${params.brandName}`)
+  },
+  {
     path: "/addAutomotive",
     element: <AddAutomotive></AddAutomotive>
   },
   {
-    path: "/UpdateAutomotive/:id",
+    path: "/details/:id",
+    element: <ProductDetails />,
+    loader: ({params}) => fetch(`http://localhost:5000/details/${params.id}`)
+  },
+  {
+    path: "/update/:id",
     element: <UpdateAutomotive></UpdateAutomotive>,
-    loader: ({params}) => fetch(`http://localhost:5000/automotive/${params.id}`)
+    loader: ({params}) => fetch(`http://localhost:5000/details/${params.id}`)
   },
 
   {

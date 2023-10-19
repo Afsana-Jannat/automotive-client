@@ -62,10 +62,8 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-            :
-            <Link>
+          :
               <button><NavLink to="/login">Login</NavLink></button>
-            </Link>
         }
 
       </div>

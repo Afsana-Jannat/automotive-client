@@ -2,16 +2,27 @@ import Swal from 'sweetalert2'
 import Navbar from './Navbar';
 
 const AddAutomotive = () => {
-    const handleAddAutomotive = event =>{
+    const handleAddAutomotive = event => {
         event.preventDefault();
 
         const form = event.target;
+        const name = form.name.value;
         const brand = form.brand.value;
         const image = form.image.value;
-
-        const newAutomotive = {brand,image}
-        console.log(newAutomotive)
-
+        const price = form.price.value;
+        const type = form.type.value;
+        const rating = form.rating.value;
+        const description = form.description.value;
+        const newAutomotive ={
+            name,
+            brand,
+            image,
+            price,
+            type,
+            rating,
+            description
+        }
+        
         // send data to the server
         fetch('http://localhost:5000/automotive', {
             method: 'POST',
@@ -20,99 +31,103 @@ const AddAutomotive = () => {
             },
             body: JSON.stringify(newAutomotive)
         })
-        .then(res => res.json())
-        .then(data =>{
-            console.log(data);
-            if(data.insertedId){
-                Swal.fire({
-                    title: 'Success!',
-                    text: 'User Added Successfully',
-                    icon: 'success',
-                    confirmButtonText: 'Cool'
-                  })
-            }
-        })
-       
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'User Added Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                }
+            })
+
     }
     return (
-        
+
         <div>
             <Navbar></Navbar>
             <div className="bg-[#e2e8f0] p-24">
-            <h2 className="text-3xl font-bold">Add automotive</h2>
-            <form onSubmit={handleAddAutomotive}>
-                {/* form row */}
-                <div className="md:flex mt-8 mb-6">
-                   
-                    <div className="form-control md:w-1/2 ml-4">
+                <h2 className="text-3xl font-bold">Add automotive</h2>
+
+                <form className="card-body" onSubmit={handleAddAutomotive}>
+                    {/* // product name  */}
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Product namete</span>
+                        </label>
+                        <input type="text" placeholder="Product Name" required name='name' className="input input-bordered"  />
+                    </div>
+                    {/* Brand name  */}
+                    <div className="form-control">
                         <label className="label">
                             <span className="label-text">Brand Name</span>
                         </label>
-                        <label className="input-group">
-                            <span>Brand</span>
-                            <input type="text" name="brand" placeholder="Brand Name" className="input input-bordered w-full" />
-                        </label>
+                        <select className="select w-full max-w-xs" required name='brand'>
+                            <option disabled selected>Select Brand</option>
+                            <option value={'Mitsubishi'}>Mitsubishi</option>
+                            <option value={'Toyota'}>Toyota</option>
+                            <option value={'Hyundai'}>Hyundai</option>
+                            <option value={'Volkswagen'}>Volkswagen</option>
+                            <option value={'Mini'}>Mini</option>
+                            <option value={'Kia'}>Kia</option>
+                        </select>
                     </div>
-                    <div className="form-control md:w-1/2 ml-4">
+
+
+
+
+
+
+                    {/*  Product Image */}
+                    <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Name</span>
+                            <span className="label-text">Product Image</span>
                         </label>
-                        <label className="input-group">
-                            <span>Name</span>
-                            <input type="text" name="name" placeholder="Name" className="input input-bordered w-full" />
-                        </label>
+                        <input type="text" placeholder="Product Image" required name='image' className="input input-bordered"  />
                     </div>
-                </div>
-                {/* form row */}
-                <div className="md:flex mt-8 mb-6">
-                   
-                    <div className="form-control md:w-1/2 ml-4">
+
+                    <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Type</span>
+                            <span className="label-text">Product type</span>
                         </label>
-                        <label className="input-group">
-                            <span>Type</span>
-                            <input type="text" name="type" placeholder="Type" className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                    <div className="form-control md:w-1/2 ml-4">
+                        <select className="select w-full max-w-xs" required name='type'>
+                            <option disabled selected>Select Product Type</option>
+                            <option value={'Car'}>Car</option>
+                            <option value={'Truck'}>Truck</option>
+                            <option value={'Bike'}>Bike</option>
+                        </select>                    </div>
+
+
+                    <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Prices</span>
+                            <span className="label-text">price</span>
                         </label>
-                        <label className="input-group">
-                            <span>Prices</span>
-                            <input type="text" name="prices" placeholder="Prices" className="input input-bordered w-full" />
-                        </label>
+                        <input type="text" placeholder="price" required name='price' className="input input-bordered"  />
                     </div>
-                </div>
-                {/* form row */}
-                <div className="md:flex mb-6">
-                    <div className="form-control md:w-1/2">
+                    <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Image</span>
+                            <span className="label-text">description</span>
                         </label>
-                        <label className="input-group">
-                            <span>Image</span>
-                            <input type="text" name="image"
-                            placeholder="Image" 
-                            className="input w-full input-bordered" />
-                        </label>
+                        <input type="text" placeholder="description" required name='description' className="input input-bordered"  />
                     </div>
-                    <div className="form-control md:w-1/2 ml:4">
+                    <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Description</span>
+                            <span className="label-text">rating</span>
                         </label>
-                        <label className="input-group">
-                            <span>Description</span>
-                            <input type="text" name="description"
-                            placeholder="Short description" 
-                            className="input w-full input-bordered" />
-                        </label>
+                        <input type="text" placeholder="rating" required name='rating' className="input input-bordered"  />
                     </div>
-                </div>
-                <input type="submit" value="Add Automotive" className="bg-gray-500 text-white btn btn-block" />
-            </form>
-        </div>
+
+
+
+
+                    <div className="form-control mt-6">
+                        <button className="btn btn-primary">Add</button>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 };
