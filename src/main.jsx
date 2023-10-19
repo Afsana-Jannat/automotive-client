@@ -11,7 +11,6 @@ import AddAutomotive from './components/AddAutomotive.jsx';
 import UpdateAutomotive from './components/UpdateAutomotive.jsx';
 import Login from './components/Login/Login.jsx';
 import Users from './components/users.jsx';
-import Mitsubishi from './components/allBrand/Mitsubishi.jsx';
 import AuthProvider from './providers/AuthProvider.jsx';
 import Register from './components/Login/Register.jsx';
 import { ToastBar } from 'react-hot-toast';
@@ -27,7 +26,7 @@ const router = createBrowserRouter([
     element: <AddAutomotive></AddAutomotive>
   },
   {
-    path: "/updateAutomotive/:id",
+    path: "/UpdateAutomotive/:id",
     element: <UpdateAutomotive></UpdateAutomotive>,
     loader: ({params}) => fetch(`http://localhost:5000/automotive/${params.id}`)
   },
@@ -44,10 +43,6 @@ const router = createBrowserRouter([
     path: '/users',
     element: <Users></Users>,
     loader: () => fetch('http://localhost:5000/user')
-  },
-  {
-    path: '/mitsubishi',
-    element: <Mitsubishi></Mitsubishi>
   }
 ]);
 
