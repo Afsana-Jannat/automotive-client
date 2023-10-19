@@ -1,11 +1,12 @@
 
-import { useLoaderData } from 'react-router-dom'
 import './App.css'
 import AutomotiveCard from './components/AutomotiveCard';
 import Navbar from './components/Navbar';
 import { useState } from 'react';
 import Banner from './Banner';
 import Footer from './Footer';
+import { Outlet, useLoaderData } from 'react-router-dom';
+
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
   return (
     <>
        <Navbar></Navbar>
+       <Outlet></Outlet>
        <Banner></Banner>
       <h1 className='text-6xl text-center mt-6
        text-purple-400'>Automotive: {automotives.length}
@@ -31,6 +33,7 @@ function App() {
         }
        </div>
        <Footer></Footer>
+
       
     </>
   )

@@ -42,9 +42,9 @@ const AddAutomotive = () => {
             <h2 className="text-3xl font-bold">Add automotive</h2>
             <form onSubmit={handleAddAutomotive}>
                 {/* form row */}
-                <div className="mt-8 mb-6">
+                <div className="md:flex mt-8 mb-6">
                    
-                    <div className="form-control md:w-full ml-4">
+                    <div className="form-control md:w-1/2 ml-4">
                         <label className="label">
                             <span className="label-text">Brand Name</span>
                         </label>
@@ -53,10 +53,41 @@ const AddAutomotive = () => {
                             <input type="text" name="brand" placeholder="Brand Name" className="input input-bordered w-full" />
                         </label>
                     </div>
+                    <div className="form-control md:w-1/2 ml-4">
+                        <label className="label">
+                            <span className="label-text">Name</span>
+                        </label>
+                        <label className="input-group">
+                            <span>Name</span>
+                            <input type="text" name="name" placeholder="Name" className="input input-bordered w-full" />
+                        </label>
+                    </div>
                 </div>
                 {/* form row */}
-                <div className="mb-6">
-                    <div className="form-control md:w-full">
+                <div className="md:flex mt-8 mb-6">
+                   
+                    <div className="form-control md:w-1/2 ml-4">
+                        <label className="label">
+                            <span className="label-text">Type</span>
+                        </label>
+                        <label className="input-group">
+                            <span>Type</span>
+                            <input type="text" name="type" placeholder="Type" className="input input-bordered w-full" />
+                        </label>
+                    </div>
+                    <div className="form-control md:w-1/2 ml-4">
+                        <label className="label">
+                            <span className="label-text">Prices</span>
+                        </label>
+                        <label className="input-group">
+                            <span>Prices</span>
+                            <input type="text" name="prices" placeholder="Prices" className="input input-bordered w-full" />
+                        </label>
+                    </div>
+                </div>
+                {/* form row */}
+                <div className="md:flex mb-6">
+                    <div className="form-control md:w-1/2">
                         <label className="label">
                             <span className="label-text">Image</span>
                         </label>
@@ -64,6 +95,17 @@ const AddAutomotive = () => {
                             <span>Image</span>
                             <input type="text" name="image"
                             placeholder="Image" 
+                            className="input w-full input-bordered" />
+                        </label>
+                    </div>
+                    <div className="form-control md:w-1/2 ml:4">
+                        <label className="label">
+                            <span className="label-text">Description</span>
+                        </label>
+                        <label className="input-group">
+                            <span>Description</span>
+                            <input type="text" name="description"
+                            placeholder="Short description" 
                             className="input w-full input-bordered" />
                         </label>
                     </div>
