@@ -48,6 +48,8 @@ const ProductDetails = () => {
              <br />
              <i className='font-extrabold ml-10
               text-purple-500'>Price: {price}</i>
+              <br />
+              <button className="btn btn-outline btn-secondary ml-12 mt-8">Add to cart</button>
         </div>
     );
 };

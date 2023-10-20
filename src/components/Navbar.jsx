@@ -7,14 +7,15 @@ const Navbar = () => {
   const navLinks = <>
     <li><NavLink to="/">Home</NavLink></li>
     <li><NavLink to="/addAutomotive">Add Automotive</NavLink></li>
-    <li><NavLink to="/updateAutomotive">Update Automotive</NavLink></li>
-    <li><NavLink to="/users">Users</NavLink></li>
+    {/* <li><NavLink to="/updateAutomotive">Update Automotive</NavLink></li> */}
+    <li><NavLink to="/users">Users</NavLink></li>     
+
   </>
 
   const { user, logOut } = useAuth();
 
   return (
-<div className="2xl:container mx-auto">
+<div className="2xl:container mx-auto font-bold text-red-800">
     <div className="navbar bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
@@ -42,7 +43,7 @@ const Navbar = () => {
             <label tabIndex={0} className="btn btn-ghost
              btn-circle avatar">
               <div className="w-10 rounded-full">
-                <img src={user.photoURL} />
+                <img src={user?.photoURL} />
               </div>
             </label>
             <ul tabIndex={0} className="menu menu-sm 
@@ -50,7 +51,7 @@ const Navbar = () => {
       bg-base-100 rounded-box w-52">
               <li>
                 <button className="btn btn-sm btn-ghost">
-                  {user.displayName}
+                  {user?.displayName}
                 </button>
               </li>
               <li>
