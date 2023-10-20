@@ -22,12 +22,12 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <App></App>,
-    loader: () => fetch('http://localhost:5000/automotive')
+    loader: () => fetch('https://automotive-server-phi.vercel.app/automotive')
   },
   {
     path: "/brands/:brandName",
     element: <BrandDetails />,
-    loader: ({params}) => fetch(`http://localhost:5000/automotive/${params.brandName}`)
+    loader: ({params}) => fetch(`https://automotive-server-phi.vercel.app/automotive/${params.brandName}`)
   },
   {
     path: "/addAutomotive",
@@ -36,12 +36,12 @@ const router = createBrowserRouter([
   {
     path: "/details/:id",
     element: <PrivateRoute><ProductDetails /></PrivateRoute>,
-    loader: ({params}) => fetch(`http://localhost:5000/details/${params.id}`)
+    loader: ({params}) => fetch(`https://automotive-server-phi.vercel.app/details/${params.id}`)
   },
   {
     path: "/update/:id",
     element: <UpdateAutomotive></UpdateAutomotive>,
-    loader: ({params}) => fetch(`http://localhost:5000/details/${params.id}`)
+    loader: ({params}) => fetch(`https://automotive-server-phi.vercel.app/details/${params.id}`)
   },
 
   {
@@ -55,7 +55,7 @@ const router = createBrowserRouter([
   {
     path: '/users',
     element: <Users></Users>,
-    loader: () => fetch('http://localhost:5000/user')
+    loader: () => fetch('https://automotive-server-phi.vercel.app/user')
   }
 ]);
 

@@ -25,7 +25,7 @@ const ProductDetails = () => {
     const [product, setProduct] = useState({})
 
     useEffect(() => {
-        fetch(`http://localhost:5000/details/${data.id}`)
+        fetch(`https://automotive-server-phi.vercel.app/details/${data.id}`)
         .then(res=>res.json())
         .then(data=>setProduct(data))
     },[data.id])

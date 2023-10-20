@@ -27,7 +27,7 @@ const UpdateAutomotive = () => {
         console.log(updatedAutomotive)
 
         // send data to the server
-        fetch(`http://localhost:5000/automotive/${_id}`, {
+        fetch(`https://automotive-server-phi.vercel.app/automotive/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

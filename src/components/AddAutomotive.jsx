@@ -24,7 +24,7 @@ const AddAutomotive = () => {
         }
         
         // send data to the server
-        fetch('http://localhost:5000/automotive', {
+        fetch('https://automotive-server-phi.vercel.app/automotive', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

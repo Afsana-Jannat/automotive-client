@@ -4,7 +4,7 @@ const BrandSlider = ({ brandName }) => {
 
     const [images, setImages] = useState([])
     useEffect(() => {
-        const url = `http://localhost:5000/brand/${brandName}`;
+        const url = `https://automotive-server-phi.vercel.app/brand/${brandName}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setImages(data.brandImages))
