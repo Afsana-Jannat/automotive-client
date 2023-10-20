@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import SocialLogin from "./SocialLogin";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
+import Navbar from "../Navbar";
 
 
 const Login = () => {
@@ -31,6 +32,7 @@ const Login = () => {
 
     return (
         <div>
+            <Navbar></Navbar>
             <div className='text-center items-center'>
             <h2 className='text-3xl my-10'>Please Login</h2>
             

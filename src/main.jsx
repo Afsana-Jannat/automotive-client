@@ -16,6 +16,7 @@ import Register from './components/Login/Register.jsx';
 import { ToastBar } from 'react-hot-toast';
 import BrandDetails from './components/BrandDetails/BrandDetails.jsx';
 import ProductDetails from './components/ProductDetails/ProductDetails.jsx';
+import PrivateRoute from './routes/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/details/:id",
-    element: <ProductDetails />,
+    element: <PrivateRoute><ProductDetails /></PrivateRoute>,
     loader: ({params}) => fetch(`http://localhost:5000/details/${params.id}`)
   },
   {
