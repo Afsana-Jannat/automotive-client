@@ -34,6 +34,8 @@ const Login = () => {
           if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/.test(password)) {
             return Swal.fire("password need at least 1 symbol");
           }
+
+          
         signin(email, password)
         .then(() =>{
             Swal.fire("log in successs")
