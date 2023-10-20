@@ -24,6 +24,16 @@ const Register = () => {
             return;
         }
 
+        // Check if the password contains at least one alphabet character (a-zA-Z)
+        if (!/[a-zA-Z]/.test(password)) {
+            return Swal.fire("password need at least 1 alphabet");
+          }
+
+          // Check if the password contains at least one symbol character
+          if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/.test(password)) {
+            return Swal.fire("password need at least 1 symbol");
+          }
+
         // creating a new user
         createUser(email, password)
         .then(res => console.log(res.user))

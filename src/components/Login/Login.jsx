@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "./SocialLogin";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
@@ -8,6 +8,7 @@ import Navbar from "../Navbar";
 const Login = () => {
 
     const { signin } = useAuth();
+    const navigate = useNavigate();
 
 
     const handleSubmit = (event) => {
@@ -23,6 +24,26 @@ const Login = () => {
             Swal.fire('Password must be at 6 characters');
             return;
         }
+
+          // Check if the password contains at least one alphabet character (a-zA-Z)
+          if (!/[a-zA-Z]/.test(password)) {
+            return Swal.fire("password need at least 1 alphabet");
+          }
+        
+          // Check if the password contains at least one symbol character
+          if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/.test(password)) {
+            return Swal.fire("password need at least 1 symbol");
+          }
+        signin(email, password)
+        .then(() =>{
+            Swal.fire("log in successs")
+
+            navigate(location?.state ? location.state : '/')
+        })
+
+        .catch(error =>{
+            Swal.fire(error.message)
+        })
 
         // creating a new user
         signin(email, password)
