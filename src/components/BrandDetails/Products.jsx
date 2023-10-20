@@ -7,7 +7,7 @@ const Products = ({ products }) => {
             {
                 products?.map(item => <div key={item._id}>
 
-                    <div className="card w-96 bg-base-100 shadow-xl">
+                    <div className="card bg-base-100 shadow-xl">
                         <figure><img src={item?.image} alt="Shoes" /></figure>
                         <div className="card-body">
                             <div className="flex justify-between">
