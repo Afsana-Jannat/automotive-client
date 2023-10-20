@@ -12,7 +12,6 @@ const BrandDetails = () => {
         <Navbar/>
             <BrandSlider brandName={brandName}/>
 
-
             <br />
             <hr />
             <h1 className="text-4xl">
